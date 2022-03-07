@@ -2,7 +2,7 @@
 <div class="flex-fill flex-grow-1 ms-3">
 
     <h1>Registrar Mi Caso</h1>
-
+<h2>que gonorrea</h2>
     <form method="post" action="CasoController?accion=add">
 
         <div class="form-group">
@@ -11,9 +11,9 @@
         </div>
 
 
-        <!--<div class="form-group">
+        <div class="form-group">
             <input type="hidden" class="form-control" name="id" id="id" placeholder="" value="{caso.IDcaso}"/>
-        </div>-->
+        </div>
 
         <div class="form-group">
             <label for="tipoAsesoria">Tipo Asesoria</label>
@@ -25,12 +25,12 @@
         </div>
         <div class="form-group">
             <label for="fechaInicio">Fecha Inicio</label>
-            <input type="text" class="form-control" name="fechaInicio" id="fechaInicio" placeholder="Ingrese la fecha inicio del caso" required/>
+            <input type="date" class="form-control" name="fechaInicio" id="fechaInicio" placeholder="Ingrese la fecha inicio del caso" required/>
         </div>
 
         <div class="form-group">
             <label for="fechaFin">Fecha Fin</label>
-            <input type="text" class="form-control" name="fechaFin" id="fechaFin" placeholder="Ingrese la fecha final del caso" required/>
+            <input type="date" class="form-control" name="fechaFin" id="fechaFin" placeholder="Ingrese la fecha final del caso" required/>
         </div>
 
         <div class="form-group">
@@ -47,13 +47,11 @@
 
         <select name="procaso"><br>
             <option> Seleccione al profesional con el que desea asesoria</option><br>
-            <c:forEach items="${prof}" var="r">
-                <option value="${r.getIDprofesional()}"> ${r.getNombre() } </option>
-            </c:forEach>
+
         </select><br>
         <br>
         <div class="form-group">
-            <input type="hidden" class="form-control"  name="afecas" id="procaso" value="${us.getIDafectada()}">
+            <input type="hidden" class="form-control"  name="afecas" id="procaso" >
         </div>
 
 

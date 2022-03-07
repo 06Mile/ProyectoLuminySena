@@ -8,7 +8,7 @@
 
 <table class="table table-bordered table-hover" id="dataTa">
 	
-	<tr>
+	<tr  class="table-primary">
 		<th>Id</th>
 		<th>Nombre</th>
 		<th>Apellido</th>

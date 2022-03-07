@@ -83,11 +83,16 @@ if(session.getAttribute("us")!=null){
     <a <c:if test="${us.cargo=='Cliente'}">hidden</c:if> href="ProfesionalController?accion=openPass" class="btn btn-info">cambiar mi contraseñaP</a>
     <br>
    <a <c:if test="${us.cargo!='Cliente'}">hidden</c:if> href="CasoController?accion=abrirFormRegistro" class="btn btn-info">Registrar mi caso</a>
+
    <br>
    <!--<a <cif test="{us.cargo!='Cliente'}">hidden</cif> href="AfectadaController?accion=ver&id={u.getIDprofesional()}" class="btn btn-warning">Editar mi informacion</a>
    <br>
    <a <cif test="{us.cargo=='Cliente'}">hidden</cif> href="ProfesionalController?accion=ver&id={u.getIDprofesional()}" class="btn btn-info">Editar mi informacion</a>-->
   <a href="AfectadaController?accion=logout" class="btn btn-danger">Cerrar Sesion</a>
+    <BR>
+    <a href="ControllerPdf" class="btn btn-danger">PDF</a>
+
+
     <hr>
        <br>
  	<br>
@@ -120,13 +125,7 @@ if(session.getAttribute("us")!=null){
             <br>
             </li>
 
-       <ul class="nav nav-pills flex-column mb-auto">
-      <li class="nav-item" <c:if test="${us.cargo!='Administrador'}">hidden</c:if>>
-        <a href="ProfesionalController?accion=listar" class="nav-link active" aria-current="page">
-         <i class="bi bi-people-fill"></i>
-          Profesionales
-        </a>
-      </li>
+
       <li <c:if test="${us.cargo=='Cliente'}">hidden</c:if>>
         <a href="CasoController?accion=listar" class="nav-link text-white" >
           <i class="bi bi-folder-check"></i>

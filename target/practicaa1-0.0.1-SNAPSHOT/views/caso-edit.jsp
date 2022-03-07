@@ -57,9 +57,6 @@
             </select>
         </div>
         <br>
-        <div>
-        <input type="text" class="form-control" disabled name="afecas" id="afecas" value="${caso.afeCas.IDafectada}"/>
-        </div>
         <!--
             <select name="afecas"><br>
                 <option> Seleccione al profesional con el que desea asesoria</option><br>

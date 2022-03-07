@@ -52,7 +52,6 @@ public class CasoController extends HttpServlet {
 		try {
 			if (accion != null) {
 				switch (accion) {
-				
 
 				case "listar":
 					listar(request, response);
@@ -60,9 +59,9 @@ public class CasoController extends HttpServlet {
                    /* case  "listarCaso":
                         listarCaso(request,response);
                         break;*/
-				case "abrirFormRegis":
+				/*case "abrirFormRegis":
 					abrirFormRegis(request,response);
-					break;
+					break;*/
 					case "abrirFormRegistro":
 						abrirFormRegistro(request,response);
 						break;
@@ -95,6 +94,9 @@ public class CasoController extends HttpServlet {
 				case "reporteCasos":
 					reporteCasos(request,response);
 					break;
+					case "page":
+						page(request, response);
+						break;
 				default:
 					response.sendRedirect("login.jsp");
 				}
@@ -105,8 +107,17 @@ public class CasoController extends HttpServlet {
 		} catch (Exception e) {
 			
 		}
-	} 
+	}
+	private void page(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			//para enviar a una vista particular
+			request.getRequestDispatcher("views/pagee.jsp").forward(request, response);
+			System.out.println("pagina abierta");
+		} catch (Exception e) {
+			System.out.println("Error al abrir pagina");
 
+		}
+	}
 	private void reporteCasos(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException{
 		//Crear objeto de tipo ServletOutputStream
@@ -226,7 +237,7 @@ public class CasoController extends HttpServlet {
 
     }
 
-
+/*
 
 	private void abrirFormRegis(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
@@ -238,23 +249,12 @@ public class CasoController extends HttpServlet {
 
 		}
 
-	}
+	}*/
 
 	private void abrirFormRegistro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			this.listarCaso(request,response);
-			request.getRequestDispatcher("views/add-caso2.jsp").forward(request, response);
-			System.out.println("Formulario caso Abierto");
-		} catch (Exception e) {
-			System.out.println("Error al abrir el formulario caso");
-
-		}
-
-	}
-	private void abrirFormCasos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			this.listarCaso(request,response);
-			request.getRequestDispatcher("views/add-caso2.jsp").forward(request, response);
+			request.getRequestDispatcher("views/add-caso.jsp").forward(request, response);
 			System.out.println("Formulario caso Abierto");
 		} catch (Exception e) {
 			System.out.println("Error al abrir el formulario caso");
@@ -263,6 +263,14 @@ public class CasoController extends HttpServlet {
 
 	}
 
+		private void abrirFormCasos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			try {
+				request.getRequestDispatcher("views/casosADD.jsp").forward(request, response);
+				System.out.println("Formulario profesional Abierto");
+			} catch (Exception e) {
+				System.out.println("Error al abrir el formulario profesionall"+e);
+			}
+		}
 
 	private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
@@ -295,7 +303,7 @@ public class CasoController extends HttpServlet {
 			*/
 			try {
 				cDao.registrar(cVo);
-				response.sendRedirect("CasoController?accion=listar");
+				response.sendRedirect("CasoController?accion=page");
 				System.out.println("caso registrado");
 			}catch(Exception e) {
 				
@@ -420,9 +428,9 @@ public class CasoController extends HttpServlet {
 				cVo.setEstado(request.getParameter("chkEstado") != null);
 				cVo.setIDprofesional(Integer.parseInt(request.getParameter("procaso")));
 
-				afectadaVo a = new afectadaVo();
+				/*afectadaVo a = new afectadaVo();
 				a.setIDafectada(Integer.parseInt(request.getParameter("afecas")));
-				/*profesionalVo p = new profesionalVo();
+				profesionalVo p = new profesionalVo();
 				p.setIDprofesional(a.getIDafectada());*/
 				//a.setIDafectada(Integer.parseInt(request.getParameter("afecas")));
 				//profesionalVo p = new profesionalVo();cas
@@ -448,10 +456,8 @@ public class CasoController extends HttpServlet {
 			System.out.println("Formulario caso Abierto");
 		} catch (Exception e) {
 			System.out.println("Error al abrir el formulario caso");
-
 		}
 	}
-
 	private void ObtenerProfesionales(HttpServletRequest request) throws ServletException, IOException {
 		profesionalDao adao = new profesionalDao();
 		List<profesionalVo> profesional=null;
@@ -465,10 +471,7 @@ public class CasoController extends HttpServlet {
 		finally {
 			//rdao=null;
 		}
-
 	}
-
-
 	}
 
 

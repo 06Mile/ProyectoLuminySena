@@ -10,7 +10,6 @@
 			<input type="text" class="form-control" name="tipoAbuso" id="tipoAbuso">
 		</div>
 
-
 		<div class="form-group">
 			<label for="tipoAsesoria">Tipo Asesoria</label>
 			<select class="form-select" name="tipoAsesoria" id="tipoAsesoria">
@@ -21,12 +20,12 @@
 		</div>
 		<div class="form-group">
 			<label for="fechaInicio">Fecha Inicio</label>
-			<input type="text" class="form-control" name="fechaInicio" id="fechaInicio" placeholder="Ingrese la fecha inicio del caso" required/>
+			<input type="date" class="form-control" name="fechaInicio" id="fechaInicio" placeholder="Ingrese la fecha inicio del caso" required/>
 		</div>
 
 		<div class="form-group">
 			<label for="fechaFin">Fecha Fin</label>
-			<input type="text" class="form-control" name="fechaFin" id="fechaFin" placeholder="Ingrese la fecha final del caso" required/>
+			<input type="date" class="form-control" name="fechaFin" id="fechaFin" placeholder="Ingrese la fecha final del caso" required/>
 		</div>
 
 		<div class="form-group">
@@ -50,16 +49,12 @@
 		</select><br>
 		<br>
 		<div class="form-group">
-
 			<input type="hidden" class="form-control"  name="afecas" id="procaso" value="${us.getIDafectada()}">
 		</div>
 
-
+<h1>comprobano ando</h1>
 		<div>
 			<button type="submit" class="btn btn-primary">Guardar</button>
-		</div>
-		<div>
-			<button type="submit" class="btn btn-primary">hptaaa</button>
 		</div>
 		<h1>hola</h1>
 	</form>

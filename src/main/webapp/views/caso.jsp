@@ -3,11 +3,10 @@
 
 <h1>Listado de Caso</h1>
 
-<a href="CasoController?accion=abrirFormRegis" class="btn btn-success" role="button">Agregar</a>
+<!--<a href="CasoController?accion=abrirFormRegistro" class="btn btn-success" role="button">Agregar</a>-->
 <a href="CasoController?accion=reporteCasos" class="btn btn-primary" role="button">Generar Reporte de los casos</a>
 
-<table class="table table-bordered table-hover" id="dataTable">
-	<!--ESTA INFO SE MUESTRA CUANDO YA SE SEPA QUIEN TRATO EL CASO Y DEMA EES DECIR EL CASO YA ESTA ASIGNADO RESPECTIVAMENTE-->
+<table class="table table-striped" id="dataTable">
 	<tr>
 		<th>Id</th>
 		<th>Tipo<br>
@@ -15,8 +14,8 @@
 		<th>Tipo<br>
 			Asesoria</th>
 
-		<th>ID<br>
-			profesional</th>
+		<!--<th>ID<br>
+			profesional</th>-->
 		<th>Nombre<br>
 			Afectada</th>
 <!--afeCas y profCaso-->
@@ -36,7 +35,7 @@
 			<td>${a.getIDcaso()}</td>
 			<td>${a.getTipoAbuso()}</td>
 			<td>${a.getTipoAsesoria()}</td>
-			<td>${a.getIDprofesional()}</td>
+			<!--<td>{a.getIDprofesional()}</td>-->
 			<td>${a.getNombreAfectada()}</td>
 			<td>${a.getNombreProfesional()}</td>
 			<td>${a.getUrlDocumento()}</td>
@@ -56,7 +55,7 @@
 			</c:if>
 
 			<td>
-			<a class="btn btn-warning" href="CasoController?accion=ver&id=${a.getIDcaso()}" role="button">Editar</a
+				<a class="btn btn-secondary" href="CasoController?accion=ver&id=${a.getIDcaso()}" role="button">Editar</a>
 				<input type="hidden" value="${a.getIDcaso()}" name="id">
 
 			<!--invocar una funcion con onclick(borrar es el nombre de la funcion)-->

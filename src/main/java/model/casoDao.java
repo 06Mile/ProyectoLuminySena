@@ -149,15 +149,15 @@ public class casoDao {
                 //r.setUrlDocumento(rs.getString("urlDocumento"));
                 r.setEstado(rs.getBoolean("estado"));
                 r.setIDprofesional(rs.getInt("IDprofesional"));
-                r.setAfeCas(new afectadaVo());
+                /*r.setAfeCas(new afectadaVo());
                 r.getAfeCas().setIDafectada(rs.getInt("IDafectada"));
-                //r.setIDafectada(rs.getInt("IDafectada"));
+                r.setIDafectada(rs.getInt("IDafectada"));
                 //r.setNombreAfectada(rs.getString(""));
                 //r.setNombreProfesional(rs.getString(""));
                 //r.setAfeCas(new afectadaVo());
                 //r.getAfeCas().setNombre(rs.getString("nombreAfectada"));
                 //r.getProfCaso().setNombre(rs.getString("nombre"));
-                //	r.getProfCaso().setIDprofesional(rs.getInt("IDprofesional"));
+                //	r.getProfCaso().setIDprofesional(rs.getInt("IDprofesional"));*/
                 System.out.println("consulta exitosa");
                 System.out.println("el id profesional es: " + r.getIDprofesional());
 
