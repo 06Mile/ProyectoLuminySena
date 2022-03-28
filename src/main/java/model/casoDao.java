@@ -47,6 +47,7 @@ public class casoDao {
                 a.setNombreAfectada(rs.getString(2));
                 a.setIDprofesional(rs.getInt(17));
                 a.setNombreProfesional(rs.getString(20));
+                a.setCorreoAfectada(rs.getString(4));
 
 				/*a.setAfeCas(new afectadaVo());
 				a.getAfeCas().setNombre(rs.getString(8));
@@ -146,7 +147,7 @@ public class casoDao {
                 r.setTipoAsesoria(rs.getString("tipoAsesoria"));
                 r.setFechaInicio(rs.getString("fechaInicio"));
                 r.setFechaFin(rs.getString("fechaFin"));
-                //r.setUrlDocumento(rs.getString("urlDocumento"));
+                r.setUrlDocumento(rs.getString("urlDocumento"));
                 r.setEstado(rs.getBoolean("estado"));
                 r.setIDprofesional(rs.getInt("IDprofesional"));
                 /*r.setAfeCas(new afectadaVo());
@@ -174,25 +175,27 @@ public class casoDao {
     public int edit(casoVo r) throws SQLException {
         //sql="UPDATE caso SET tipoAbuso=?, tipoAsesoria=?, fechaInicio=?,fechaFin=?,estado=? WHERE IDcaso="+r.getIDcaso();
 //sql="UPDATE caso SET tipoAbuso=?, tipoAsesoria=?, fechaInicio=?,fechaFin=?,estado=?,IDprofesional=? WHERE IDcaso="+r.getIDcaso();
-        sql = "UPDATE caso SET tipoAbuso=?, tipoAsesoria=?, fechaInicio=?,fechaFin=?,estado=?,IDprofesional=? WHERE IDcaso=" + r.getIDcaso();
+        sql = "UPDATE caso SET tipoAsesoria=?,fechaFin=?,urlDocumento=?,estado=?,IDprofesional=? WHERE IDcaso=" +r.getIDcaso();
+
         try {
             con = Conexion.conectar(); //Abriendo la conexi�n a la BD
             ps = con.prepareStatement(sql); //preparar sentencia
-            ps.setString(1, r.getTipoAbuso());
-            ps.setString(2, r.getTipoAsesoria());
-            ps.setString(3, r.getFechaInicio());
-            ps.setString(4, r.getFechaFin());
-            //ps.setString(5, r.getUrlDocumento());
-            ps.setBoolean(5, r.isEstado());
+            System.out.println(sql);
+            //ps.setString(1, r.getTipoAbuso());
+            ps.setString(1, r.getTipoAsesoria());
+            //ps.setString(3, r.getFechaInicio());
+            ps.setString(2, r.getFechaFin());
+            ps.setString(3, r.getUrlDocumento());
+            ps.setBoolean(4, r.isEstado());
             //ps.setInt(6, r.getIDafectada());
-            ps.setInt(6, r.getIDprofesional());
+            ps.setInt(5, r.getIDprofesional());
             System.out.println(ps);
             ps.executeUpdate();//Ejeuci�n de la sentencia
             ps.close();
             System.out.println("Se cambi� el caso");
 
         } catch (Exception e) {
-            System.out.println("Error al cambiar caso" + e.getMessage());
+            System.out.println("Error al cambiar casoooooooooooo" + e.getMessage());
         } finally {
             con.close();
         }

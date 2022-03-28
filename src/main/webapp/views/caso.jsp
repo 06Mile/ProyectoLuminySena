@@ -1,10 +1,9 @@
 <%@include file="header.jsp" %>
 <div class="flex-fill flex-grow-1 ms-3">
-
 <h1>Listado de Caso</h1>
-
+	<a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#sent/FMfcgzGmvBrxVSCqkRrDHxTbCVTXHlbd?compose=DmwnWrRttFsQWvvXczcFGhXLSPpCDnLptfgvXZcKBtlFHjzdcGzvTsBGJfpwXNTPDDXkTBkGhgpG" class="btn btn-secondary" role="button">Enviar Correo</a>
 <!--<a href="CasoController?accion=abrirFormRegistro" class="btn btn-success" role="button">Agregar</a>-->
-<a href="CasoController?accion=reporteCasos" class="btn btn-primary" role="button">Generar Reporte de los casos</a>
+<!--<a href="CasoController?accion=reporteCasos" class="btn btn-primary" role="button">Generar Reporte de los casos</a>-->
 
 <table class="table table-striped" id="dataTable">
 	<tr>
@@ -16,15 +15,17 @@
 
 		<!--<th>ID<br>
 			profesional</th>-->
+		<th>Correo<br>
+			Afectada</th>
 		<th>Nombre<br>
 			Afectada</th>
 <!--afeCas y profCaso-->
 		<th>Nombre<br>
 			Profesional a cargo</th>
 
-		<th>Documento Caso</th>
-		<th>Fecha <br> Inicio</th>
-		<th>Fecha </br>Fin</th>
+		<th>Url Asesoria</th>
+		<th>Fecha <br> Registro</th>
+		<th>Fecha </br>Asesoria</th>
 		<th>Estado</th>
 
 		<th colspan="2">Acciones</th>
@@ -36,6 +37,7 @@
 			<td>${a.getTipoAbuso()}</td>
 			<td>${a.getTipoAsesoria()}</td>
 			<!--<td>{a.getIDprofesional()}</td>-->
+			<td>${a.getCorreoAfectada()}</td>
 			<td>${a.getNombreAfectada()}</td>
 			<td>${a.getNombreProfesional()}</td>
 			<td>${a.getUrlDocumento()}</td>

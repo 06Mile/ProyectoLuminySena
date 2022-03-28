@@ -23,10 +23,7 @@
         </div>
 
 
-        <div class="form-group">
-            <label for="passnew2">Confirma Password Nuevo</label><br>
-            <input type="password" class="form-control" name="passnew2" id="passnew2" placeholder="Confirme la contrase�a nueva"/>
-        </div>
+        
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Guardar</button>

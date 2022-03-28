@@ -37,20 +37,14 @@ if(session.getAttribute("us")!=null){
           <a class="nav-link active" aria-current="page" style="color: snow; href="#">Home</a>
           
         </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color: snow; href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color: snow; href="#">Pricing</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" style="color: snow; href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Acciones
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="AfectadaController?accion=logout">Cerrar sesion</a></li>
+            <li><a class="dropdown-item" href="http://localhost:8080/prac_war_exploded/">Pagina Principal</a></li>
+
           </ul>
         </li>
       </ul>
@@ -76,11 +70,11 @@ if(session.getAttribute("us")!=null){
     <br>
     <a <c:if test="${us.cargo!='Cliente'}">hidden</c:if> href="AfectadaController?accion=verPerfil" class="btn btn-info">Editar Correo</a>
       <br>
-    <a <c:if test="${us.cargo=='Cliente'}">hidden</c:if> href="ProfesionalController?accion=verPerfil" class="btn btn-info">Editar CorreoP</a>
+    <a <c:if test="${us.cargo=='Cliente'}">hidden</c:if> href="ProfesionalController?accion=verPerfil" class="btn btn-info">Editar Correo</a>
     <br>
     <a <c:if test="${us.cargo!='Cliente'}">hidden</c:if> href="AfectadaController?accion=openPass" class="btn btn-info">Cambiar mi contraseña</a>
     <br>
-    <a <c:if test="${us.cargo=='Cliente'}">hidden</c:if> href="ProfesionalController?accion=openPass" class="btn btn-info">cambiar mi contraseñaP</a>
+    <a <c:if test="${us.cargo=='Cliente'}">hidden</c:if> href="ProfesionalController?accion=openPass" class="btn btn-info">Cambiar mi contraseña</a>
     <br>
    <a <c:if test="${us.cargo!='Cliente'}">hidden</c:if> href="CasoController?accion=abrirFormRegistro" class="btn btn-info">Registrar mi caso</a>
 
@@ -89,8 +83,7 @@ if(session.getAttribute("us")!=null){
    <br>
    <a <cif test="{us.cargo=='Cliente'}">hidden</cif> href="ProfesionalController?accion=ver&id={u.getIDprofesional()}" class="btn btn-info">Editar mi informacion</a>-->
   <a href="AfectadaController?accion=logout" class="btn btn-danger">Cerrar Sesion</a>
-    <BR>
-    <a href="ControllerPdf" class="btn btn-danger">PDF</a>
+
 
 
     <hr>
@@ -126,26 +119,15 @@ if(session.getAttribute("us")!=null){
             </li>
 
 
-      <li <c:if test="${us.cargo=='Cliente'}">hidden</c:if>>
-        <a href="CasoController?accion=listar" class="nav-link text-white" >
-          <i class="bi bi-folder-check"></i>
-          Asignar Casos
-        </a>
-      </li>
-        <li <c:if test="${us.cargo=='Cliente'}">hidden</c:if>>
-        <a href="MisCasosController?accion=abrirForm" class="nav-link text-white" >
-          <i class="bi bi-folder-check"></i>
-          Ver CasosPDF
-        </a>
-      </li>
+
        <!--  </li>
          <li <cif test="{us.cargo!='Cliente'}">hidden</cif>>
            <a href="MisCasosController?accion=listar" class="nav-link text-white" >
              <i class="bi bi-folder-check"></i>
              Mis casos
            </a>
-         </li>-->
-      <li <c:if test="${us.cargo!='Cliente'}">hidden</c:if>>
+         </li>
+      <li <cif test="{us.cargo!='Cliente'}">hidden</cif>>
         <a href="#" class="nav-link text-white">
           <i class="bi bi-folder-check"></i>
           Informe

@@ -1,55 +1,75 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<title>Iniciar Sesion/Luminy.com</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="img/Luminy/LMN.jpeg" rel="icon">
+	<link href="img/Luminy/LMN.jpeg" rel="apple-touch-icon">
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
+	<!-- MATERIAL DESIGN ICONIC FONT -->
+	<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200&display=swap" rel="stylesheet">
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="css/style.css">
+	<link href="sesion/style.css" rel="stylesheet">
 </head>
-<body style="background-color:#A1BFF5;">
 
-<div class="row justify-content-center align-items-center vh-100">
-	<aside class="col-sm-4">
+<body style="background-image: url('img/Luminy/FONDO.png')">
 
-<div class="card">
-<article class="card-body">
-<h4 class="card-title mb-4 mt-1">Iniciar sesion</h4>
-	 <form method="post" action="AfectadaController?accion=login">
-    <div class="form-group">
-    	<label for="correo" class="form-label">Correo</label>
-    	<div class="input-group">
-      <div class="input-group-text">@</div>
-      <input type="email" class="form-control" placeholder="correo" id="correo" name="correo" autofocus required>
-    </div>
+<div class="wrapper">
 
-    <div class="form-group">
-    
-    	<label for="password" class="form-label">Contraseña</label>
-        <input class="form-control" placeholder="******" type="password" id="password" name="password" required >
-        
-    	<a class="float-right" href="#">Olvidaste tu contraseña?</a>
-    	<br>
-    </div> <!-- form-group// --> 
-    <div class="form-group"> 
-    <div class="checkbox">
-     <!-- <label> <input type="checkbox"> Save password </label>-->
-    </div> <!-- checkbox .// -->
-    </div> <!-- form-group// -->  
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Iniciar sesion</button>
-        
-	<!-- <button  href="RolController?accion=registrar" type="submit" class="btn btn-success btn-block"> Crear Cuenta</button> -->
-	<a href="AfectadaController?accion=abrirFormulario2" class="btn btn-success btn-block" role="button">Crear cuenta Cliente</a>
-		
-    </div> <!-- form-group// -->                                                           
-</form>
-</article>
+	<div class="inner">
+		<div class="LOGO">
+			<a href="index.html" >
+				<img src="img/Luminy/logo-1.jpg" alt="">
+			</a><br> <br> <br>
+
+		</div>
+		<form method="post" action="AfectadaController?accion=login">
+
+			<h3>Iniciar Sesiï¿½n</h3>
+			<center>
+			<div class="form-row" style=" width: 400px" >
+				<input  style=" width:100%" type="email" class="form-control-c" placeholder="Correo Electrï¿½nico" id="correo"  name="correo" required> <br><br>
+
+			</div>
+			<div class="form-row" style="width: 400px">
+				<input style="width: 100%" type="password" class="form-control-c" placeholder="Contraseï¿½a" id="password" name="password" required> <br><br>
+
+			</div>
+
+			<div class="col-12">
+				<div class="form-check">
+					<label class="form-check-label" for="acceptTerms">Crear una <a href="AfectadaController?accion=abrirFormulario2">Cuenta</a></label>
+
+				</div>
+
+			</div></center>
+
+			<!--
+            <div class="form-row">
+                <input type="text" class="form-control" placeholder="Phon">
+                <div class="form-holder">
+                    <select name="" id="" class="form-control">
+                        <option value="" disabled selected>Choose Your Class</option>
+                        <option value="class 01">Class 01</option>
+                        <option value="class 02">Class 02</option>
+                        <option value="class 03">Class 03</option>
+                    </select>
+                    <i class="zmdi zmdi-chevron-down"></i>
+                </div>
+            </div>
+            <textarea name="" id="" placeholder="Message" class="form-control" style="height: 130px;"></textarea>
+        --><button>Ingresar
+			<i class="zmdi zmdi-long-arrow-right"></i>
+		</button>
+
+		</form>
 
 <div class="card-footer bg-transparent border-success">
 	  	<p>
@@ -62,7 +82,10 @@
 	  </div>
 </div> <!-- card.// -->
 
-	</aside> <!-- col.// -->
+	</div> <!-- col.// -->
 	<aside class="col-sm-4">
-</body>
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/main.js"></script>
+	</aside>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

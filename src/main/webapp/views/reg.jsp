@@ -1,41 +1,54 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+    <meta charset="utf-8">
+    <title>Registrar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="img/Luminy/LMN.jpeg" rel="icon">
+    <link href="img/Luminy/LMN.jpeg" rel="apple-touch-icon">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
- <link rel="stylesheet" href="css/style.css">
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
- <script type="text/javascript" src="validation.js"></script>
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200&display=swap" rel="stylesheet">
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link href="sesion/style.css" rel="stylesheet">
 </head>
-<body style="background-color:#E28EEB;">
 
-<div class="row justify-content-center align-items-center vh-100">
-	<aside class="col-sm-4">
+<body>
 
-<div class="card">
-<article class="card-body">
+<div class="wrapper">
 
-<h1>Registrar Afectada</h1>
-<form method="post" action="RolController?accion=addA" id="form">
-  	
-  	<div class="form-group">
-  		<label for="correo">Correo</label>
-  		<input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese el correo" onchange="verifyCorreo()" required/>
-  	</div>
-  	
-  <div id="validarC" class="text-danger"></div>	
-  	
-  		<div class="form-group">
-  		<label for="contrasena">Contraseña</label><br>
-  		<input type="password" class="form-control" name="contrasena" id="contrasena" placeholder="Ingrese la contraseña" required/>
-  	</div>
-  	
-  	
+    <div class="inner">
+        <div class="LOGO">
+            <a href="index.html" >
+                <img src="img/Luminy/logo-1.jpg" alt="">
+            </a><br> <br> <br>
+
+        </div>
+        <form method="post" action="RolController?accion=addA" >
+
+            <h3>Crear Cuenta</h3>
+            <div class="form-row">
+                <input type="text" class="form-control" name="nombre" placeholder="Nombres"required>
+                <input type="text" class="form-control" name="apellido" placeholder="Apellidos"required>
+            </div>
+            <div class="form-row">
+                <input type="date" class="form-control" name="fechaNa" placeholder="Fecha de Nacimiento"required>
+                <input type="text" class="form-control" name="numeroDocumento" placeholder="Nï¿½mero de Documento"required>
+            </div>
+            <div class="form-row">
+                <input type="email" class="form-control-c"  name="correo" placeholder="Correo Electrï¿½nico"required> <br><br>
+
+            </div>
+            <div class="form-row">
+                <input type="email" class="form-control" name="contrasena" placeholder="Contraseï¿½a"required>
+                <input type="password" class="form-control" placeholder="Confirmar Contraseï¿½a"required>
+            </div>
   	<div class="form-check">
   <input class="form-check-input" type="checkbox" name="chkEstado" id="chkEstado" checked>
   <label class="form-check-label" for="flexCheckChecked">

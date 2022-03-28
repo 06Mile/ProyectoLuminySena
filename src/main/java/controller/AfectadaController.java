@@ -407,8 +407,8 @@ private void changeEstado(HttpServletRequest request, HttpServletResponse respon
 
 			String destinatario = request.getParameter("correo");
 			String asunto = "Bienvenido A Huitacas";
-			String cuerpo = "<h1> Gracias por registrarse en Huitacas </h1>"
-					//+ r.getCorreo() +", " +r.getContrasena()
+			String cuerpo = "<h1> Gracias por registrarse en Huitacas </h1> <br> <h3>A continuacion te enviamos tu usuario y contraseña con la cual te registraste</h3>"
+					+ aVo.getCorreo() +", " +aVo.getContrasena()
 					+ " <img src ='https://harmonia.la/imagen_nota/feminismo.jpg?mrf-size=m'/>"
 					+ " <h4> Para iniciar sesiòn </h4>"
 					+ " <a href='http://localhost:8080/prac_war/AfectadaController?accion=abrirLogin'>Haga click aquì</a>";

@@ -12,7 +12,6 @@
 	<link rel="stylesheet" href="css/style.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script type="text/javascript" src="validation.js"></script>
-	<script type="text/javascript" src="validacionForm.js"></script>
 
 </head>
 <body style="background-color:#E28EEB;">
@@ -25,29 +24,29 @@
 
 	<h1>Registrar Afectada</h1>
 
-	<form method="post" action="AfectadaController?accion=add" name="formulario">
+	<form method="post" action="AfectadaController?accion=add" name="formulario" id="formulario">
 
 		<!-- ESTOS DATOS SE MIRAN EN LA BD  -->
 		<div class="form-group">
 			<label for="nombre">Nombre</label> 
 			<input class="form-control" id="nombre" type="text" name="nombre" placeholder="Ingrese su nombre" required>
-			<label id="error1" style="color: red"></label>
+			<div id="mensaje1" class="errores">Porfavor digite su</div>
 		</div>
 		<div class="form-group">
 			<label for="apellido">Apellido</label> 
 			<input class="form-control" id="apellido" type="text" name="apellido" placeholder="Ingrese su Apellido" required>
-			<label id="errorA" style="color: red"></label>
+			<div id="mensaje2" class="errores">Porfavor digite su</div>
 		</div>
 		<div class="form-group">
 			<label for="correo">Correo</label>
 			<input class="form-control" id="correo" type="email" name="correo" placeholder="Ingrese su Correo" onchange="verifyCorreo()" required>
-			<label id="error2" style="color: red"></label>
+			<div id="mensaje3" class="errores">Porfavor digite su</div>
 		</div>
 		<div id="validarC" class="text-danger"></div>
 		<div class="form-group">
 			<label for="contrasena">Contrasena</label>
 			<input class="form-control" type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña " required>
-			<label id="error3" style="color: red"></label>
+			<div id="mensaje4" class="errores">Porfavor digite su</div>
 		</div>
 		<div class="form-group">
 			<label for="numeroDocumento">Numero de Documento</label>
@@ -56,6 +55,7 @@
 		<div class="form-group">
 			<label for="fechaNa">Fecha De Nacimiento:</label>
 			<input class="form-control" type="date" id="fechaNa" name="fechaNa" placeholder="Ingrese su Fecha De Nacimiento " required>
+			<div id="mensaje5" class="errores">Porfavor digite su</div>
 		</div>
 		<div class="form-check">
 			<input class="form-check-input" type="checkbox" name="chkEstado" id="chkEstado" checked>
@@ -73,12 +73,12 @@
 
 
 		<br>
-		<input class="checkbox" name="aceptar" type="checkbox"
+		<input class="checkbox" name="aceptar" id="aceptar" type="checkbox"
 			   required><strong>  ACEPTO</strong> los
 		<button type="button"class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#exampleModal" role="link">
 			terminos y condiciones
 		</button>
-
+			<em id="agree-error" class="help-block"></em>
 		<div id="formFooter">
 
 			<input type="reset"class="btn btn-link btn-sm" value="Cancelar">
@@ -91,7 +91,7 @@
 
 
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Terminos y condiciones </h5>
+						<h5 class="modal-title" id="exampleModalLabel" name="exampleModalLabel">Terminos y condiciones </h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -122,7 +122,7 @@
 		<div>
 
 			<br>
-			<button type="submit" onclick="return validar();" onclick=" return val();" onclick="return vali();" class="btn btn-primary">Guardar</button>
+			<button type="submit" id="enviar"  class="btn btn-primary">Guardar</button>
 		</div>
 
 
@@ -158,82 +158,17 @@
 	}
 
 </script>
-<script type="text/javascript">
-	function validar(){
-	return validar_nombre();
-	}
-	function vali(){
-	return validar_apellido();
-	}
-	function  val(){
-		return  validar_correo();
-}
-	function validar_nombre(){
-		var nombre = document.formulario.nombre.value;
-		var error1= document.getElementById('error1');
-		var valida=/^[a-z-A-Z]{1,30}$/;
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="js/traducciones.js"></script>
+<script src="js/validacionForm.js"></script>
 
-		if (nombre===""){
-			error1.textContent="*Error necesita agregar un nombre";
-		}else if (nombre.length>30) {
-			error1.textContent="*Error demasiados caracteres";
-			return false;
-		}else if (!valida.test(nombre)){
-			error1.textContent="*Error solo se permiten letras";
-			return false;
-		}
-	}
-	function validar_apellido(){
-		var apellido = document.formulario.apellido.value;
-		var errorA= document.getElementById('errorA');
-		var valida=/^[a-z-A-Z]{1,30}$/;
+</script>  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
-		if (apellido===""){
-			errorA.textContent="*Error necesita agregar un nombre";
-		}else if (apellido.length>30) {
-			errorA.textContent="*Error demasiados caracteres";
-			return false;
-		}else if (!valida.test(apellido)){
-			errorA.textContent="*Error solo se permiten letras";
-			return false;
-		}
-	}
-
-	function validar_correo(){
-		var correo = document.formulario.correo.value;
-		var error2= document.getElementById('error2')
-		var validar=/^[a-z-A-Z-0-9]+@+[a-z]+.+[a-z]$/;
-		if (correo===""){
-			error2.textContent="Debe digitar un un correo Electronico";
-			return false;
-		}
-		else if(correo.length>50){
-			error2.textContent="*Error demasiados caracteres";
-			return false;
-		}
-		else if (!validar.test(correo)){
-			error2.textContent="*Error el correo debe ser valido";
-			return false;
-		}
-	}
-	function validar_constrasena(){
-		var constrasena = document.formulario.contrasena.value;
-		var error3= document.getElementById('error3')
-		var valid=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){5,15}$/;;
-
-		if (constrasena===""){
-			error3.textContent="*Error Debe digitar una contraseña";
-			return false;
-		} else if (constrasena.length<5){
-			error3.textContent="*Error debe ingresar mas de 5 y menos de 15 caracteres";
-			return false;
-		}	else if (!validar.test(contrasena)){
-			error3.textContent="*Error la contrasena debe ser valido";
-			return false;
-		}
-
-	}
-</script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
 </body>
 </html>
 

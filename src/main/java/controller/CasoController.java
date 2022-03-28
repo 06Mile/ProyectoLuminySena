@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -27,6 +28,18 @@ import net.sf.jasperreports.engine.util.JRLoader;
  */
 @WebServlet("/CasoController")
 public class CasoController extends HttpServlet {
+	private String host;
+	private String puerto;
+	private String remitente;
+	private String password;
+
+	public void init() {
+		ServletContext contexto = getServletContext();
+		host = contexto.getInitParameter("host");
+		puerto = contexto.getInitParameter("puerto");
+		remitente = contexto.getInitParameter("remitente");
+		password = contexto.getInitParameter("password");
+	}
 	private static final long serialVersionUID = 1L;
        
 	casoVo cVo = new casoVo();
@@ -89,6 +102,7 @@ public class CasoController extends HttpServlet {
 					break;
 				case "edit":
 					edit(request,response);
+
 				break;
 
 				case "reporteCasos":
@@ -195,26 +209,6 @@ public class CasoController extends HttpServlet {
 				}
 				
 			}
-/*
-	private void listarEditar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		profesionalDao adao = new profesionalDao();
-		List<profesionalVo> profesional=null;
-		try {
-			//(para que del modelo suba al controlador)
-			profesional= adao.listar();
-			//(para que del controlador suba a una vista)
-			request.setAttribute("caso",profesional);
-			request.getRequestDispatcher("views/caso-edit.jsp").forward(request, response);
-			System.out.println("caso encontrados");
-
-		} catch (Exception e) {
-			System.out.println("casoooo no encontrado"+e.getMessage());
-		}
-		finally {
-			//rdao=null;
-		}
-	}
-*/
 
 
 	private void listarCaso(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -274,7 +268,7 @@ public class CasoController extends HttpServlet {
 
 	private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-			if(request.getParameter("fechaInicio") !=null && request.getParameter("fechaFin")!=null) {
+			if(request.getParameter("fechaInicio") !=null && request.getParameter("tipoAbuso")!=null) {
 				cVo.setTipoAbuso(request.getParameter("tipoAbuso"));
 				cVo.setTipoAsesoria(request.getParameter("tipoAsesoria"));
 				cVo.setFechaInicio(request.getParameter("fechaInicio"));
@@ -296,7 +290,7 @@ public class CasoController extends HttpServlet {
 				cVo.setProfCaso(p);
 
 			}
-			/*tipoAsesoriaVo t = new tipoAsesoriaVo(); 
+			/*tipoAsesoriaVo t = newedi tipoAsesoriaVo();
 			
 				t.setIDasesoria(Integer.parseInt(request.getParameter("asesoria")));
 				cVo.setAseCas(t);
@@ -385,10 +379,9 @@ public class CasoController extends HttpServlet {
 
 
 		private void ver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 			casoDao dao;
 			casoVo casos;
-			if (request.getParameter("id") != null) {
+			if (request.getParameter("id") != null ) {
 				casos = new casoVo();
 				casos.setIDcaso(Integer.parseInt(request.getParameter("id")));
 
@@ -415,39 +408,38 @@ public class CasoController extends HttpServlet {
 			}
 
 		}
-		private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
-			if(request.getParameter("id")!=null && request.getParameter("fechaInicio") !=null && request.getParameter("fechaFin")!=null) {
-				
-				cVo.setIDcaso(Integer.parseInt(request.getParameter("id")));
-				cVo.setTipoAbuso(request.getParameter("tipoAbuso"));
-				cVo.setTipoAsesoria(request.getParameter("tipoAsesoria"));
-				cVo.setFechaInicio(request.getParameter("fechaInicio"));
-				cVo.setFechaFin(request.getParameter("fechaFin"));
-				//cVo.setUrlDocumento(request.getParameter("urlDocumento"));
-				cVo.setEstado(request.getParameter("chkEstado") != null);
-				cVo.setIDprofesional(Integer.parseInt(request.getParameter("procaso")));
+	private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		if(request.getParameter("id")!=null &&  request.getParameter("fechaFin")!=null) {
+
+			cVo.setIDcaso(Integer.parseInt(request.getParameter("id")));
+			cVo.setTipoAbuso(request.getParameter("tipoAbuso"));
+			cVo.setTipoAsesoria(request.getParameter("tipoAsesoria"));
+			cVo.setFechaInicio(request.getParameter("fechaInicio"));
+			cVo.setFechaFin(request.getParameter("fechaFin"));
+			cVo.setUrlDocumento(request.getParameter("urlDocumento"));
+			cVo.setEstado(request.getParameter("chkEstado") != null);
+			cVo.setIDprofesional(Integer.parseInt(request.getParameter("procaso")));
 				/*afectadaVo a = new afectadaVo();
-				a.setIDafectada(Integer.parseInt(request.getParameter("afecas")));
+				a.setIDafectada(a.getIDafectada());
 				profesionalVo p = new profesionalVo();
 				p.setIDprofesional(a.getIDafectada());*/
-				//a.setIDafectada(Integer.parseInt(request.getParameter("afecas")));
-				//profesionalVo p = new profesionalVo();cas
-				//p.setIDprofesional(Integer.parseInt(request.getParameter("procaso")));
+			//a.setIDafectada(Integer.parseInt(request.getParameter("afecas")));
+			//profesionalVo p = new profesionalVo();cas
+			//p.setIDprofesional(Integer.parseInt(request.getParameter("procaso")));
 
-				//cVo.setAfeCas(a);
-				//cVo.setProfCaso(p);
-			}
-			try {
-				cDao.edit(cVo);
-				response.sendRedirect("CasoController?accion=listar");
-				System.out.println("CASO cambiado");
-			}catch(Exception e) {
-				
-				System.out.println("Error al cambiar el CASO"+e.getMessage());
-			}
+			//cVo.setAfeCas(a);
+			//cVo.setProfCaso(p);
 		}
+		try {
+			cDao.edit(cVo);
+			response.sendRedirect("CasoController?accion=listar");
+			System.out.println("CASO cambiado");
+		}catch(Exception e) {
+
+			System.out.println("Error al cambiar el CASO"+e.getMessage());
+		}
+	}
 
 	private void abrirDificil(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {

@@ -6,7 +6,7 @@ public class casoVo {
 
 	private int IDcaso,IDafectada,IDprofesional;
 	private Boolean estado ;
-	private String fechaInicio, fechaFin,tipoAbuso,tipoAsesoria,urlDocumento,nombreAfectada,nombreProfesional;
+	private String fechaInicio, fechaFin,tipoAbuso,tipoAsesoria,urlDocumento,nombreAfectada,nombreProfesional,correoAfectada;
 	private afectadaVo afeCas;
 	private  profesionalVo profCaso;
 
@@ -20,7 +20,7 @@ public class casoVo {
 		
 	}
 
-	public casoVo(int IDcaso, int IDafectada, int IDprofesional, Boolean estado, String fechaInicio, String fechaFin, String tipoAbuso, String tipoAsesoria, String nombreAfectada, String nombreProfesional, afectadaVo afeCas, profesionalVo profCaso) {
+	public casoVo(int IDcaso, int IDafectada, int IDprofesional, Boolean estado, String fechaInicio, String fechaFin, String tipoAbuso, String tipoAsesoria, String urlDocumento, String nombreAfectada, String nombreProfesional, String correoAfectada, afectadaVo afeCas, profesionalVo profCaso) {
 		this.IDcaso = IDcaso;
 		this.IDafectada = IDafectada;
 		this.IDprofesional = IDprofesional;
@@ -29,8 +29,10 @@ public class casoVo {
 		this.fechaFin = fechaFin;
 		this.tipoAbuso = tipoAbuso;
 		this.tipoAsesoria = tipoAsesoria;
+		this.urlDocumento = urlDocumento;
 		this.nombreAfectada = nombreAfectada;
 		this.nombreProfesional = nombreProfesional;
+		this.correoAfectada = correoAfectada;
 		this.afeCas = afeCas;
 		this.profCaso = profCaso;
 	}
@@ -157,4 +159,8 @@ public class casoVo {
 	public void setNombreProfesional(String nombreProfesional) {
 		this.nombreProfesional = nombreProfesional;
 	}
+
+	public String getCorreoAfectada() { return correoAfectada;}
+
+	public void setCorreoAfectada(String correoAfectada) { this.correoAfectada = correoAfectada;}
 }

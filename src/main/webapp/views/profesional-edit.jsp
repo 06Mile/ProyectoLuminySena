@@ -25,8 +25,7 @@
 </div>
 
 	<div class="form-group">
-		<label for="correo">Contraseña</label>
-		<input type="password" class="form-control" name="password" id="password" placeholder="Ingrese la contraseña" value="${profesional.contrasena}"/>
+		<input type="hidden" class="form-control" name="password" id="password" placeholder="Ingrese la contraseña" value="${profesional.contrasena}"/>
 	</div>
 	<div class="form-group">
 		<label for="nuDocumento">Numero Documento</label>
@@ -44,13 +43,14 @@
 			<label for="cargo">Cargo</label>
 			<select name="cargo" id="cargo" class="form-select" value="${profesional.cargo}">
 				<option selected>Selecione un tipo de documento</option>
-				<option value="abogada">Abogada</option>
-				<option value="psicologa">Psicologa</option>
-				<option value="administrador">Administrador</option>
+				<option value="Abogada">Abogada</option>
+				<option value="Psicologa">Psicologa</option>
+				<option value="Administrador">Administrador</option>
 			</select>
 		</div>
-
+<BR>
 <div>
+
 <button type="submit" class="btn btn-primary">Guardar</button>
 </div>
   

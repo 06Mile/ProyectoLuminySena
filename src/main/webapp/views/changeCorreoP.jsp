@@ -23,10 +23,6 @@
         </div>
 
 
-        <div class="form-group">
-            <label for="passnew2">Confirma Correo Nuevo</label><br>
-            <input type="email" class="form-control" name="passnew2" id="passnew2" placeholder="Confirme la contrase�a nueva"/>
-        </div>
 
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Guardar</button>

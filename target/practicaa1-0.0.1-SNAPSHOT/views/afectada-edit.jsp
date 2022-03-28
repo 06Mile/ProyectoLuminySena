@@ -26,8 +26,7 @@
 		<input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese el correo" value="${afectada.correo}"/>
 	</div>
 	<div class="form-group">
-		<label for="correo">Contraseña</label>
-		<input type="password" class="form-control" name="password" id="password" placeholder="Ingrese la contraseña" value="${afectada.contrasena}"/>
+		<input type="hidden" class="form-control" name="password" id="password" placeholder="Ingrese la contraseña" value="${afectada.contrasena}"/>
 	</div>
 	<div class="form-group">
 		<label for="nuDocumento">Numero Documento</label>
@@ -48,21 +47,12 @@
 	<div class="form-group">
 		<label for="cargo">Cargo</label>
 		<select name="cargo" id="cargo" class="form-select" value="${afectada.cargo}">
-				<option selected>Selecione un tipo de documento</option>
+				<option selected>Selecione su rol</option>
 				<option value="afectada">Cliente</option>
 			</select>
 		</div>
-  	<!--
-  	<div class="form-group">
-			<label for="tipodoc">Tipo Documento</label>-->
-			<!--SELECT INDISPENSABLE EL NAME -->
-			<!--<select name="tipodoc" class="form-select" value="{afectada.tipoDocumento}">
-				<option selected>Selecione un tipo de documento</option>
-				<option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-				<option value="Cedula de Ciudadania">Cedula de Ciudadania</option>
-			</select>
-		</div>
-		-->
+
+	<br>
 
 <div>
 <button type="submit" class="btn btn-primary">Guardar</button>
